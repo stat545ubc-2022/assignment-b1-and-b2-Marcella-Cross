@@ -4,27 +4,95 @@ author: "Marcella Cross"
 date: "2022-11-01"
 output: html_document
 ---
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+I am planning to make a function that will group by () and then filter out NA values and finally output a summarise table that tells you the number of each observation in the column. I repeated this procedure multiple times in both assignments and thought a function would be useful. Here are a few useful libraries to load
+```{r}
+library(devtools)
+library(datateachr)
+library(dplyr)
+library(tidyverse)
+library(testthat)
+library(digest)
 ```
 
-## R Markdown
+Here I define my function where x is the name of the data set and y is the variable for which you wish to see the summary of count.
+```{r}
+#' Group By Variable, Filter Out NA Values, and Summarize
+#'
+#'Function description: This function groups the data by a selected variable, filters out the NA values, and creates a summary table with the count of each value.
+#'
+#' @param data -> data is the name of the data set of interest -- It was named data for clarity of what input is required.
+#' @param column -> column is the name of the variable of interest -> this will usually be a categorical variable but can be any variable. -- it was named column to specify that it is a variable name as the input as this is most often the name of a column.
+#'
+#' @return A summary table of the counts of each value within Y
+#' @export
+#'
+#' @examples
+#' group.filterNA.summary(vancouver_trees, street_side_name) #expect summary table of numbers of counts of EVEN vs. ODD
+#' group.filterNA.summary(vancouver_trees, neighbourhood_name) #expect summary table of numbers of counts of neighbourhoods
+#' group.filterNA.summary(vancouver_trees, curb) #expect summary table of numbers of counts of neighbourhoods
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+group.filterNA.summary <- function(data,column) {if(is.numeric(column)) {
+    stop('Sorry, but this function works only for non-numeric inputs!\n',
+         'You have input an object of class: ', class(!is.numeric(column))[1])
+  }
+                                          data %>%
+                                          group_by_(column)%>%
+                                          drop_na(column) %>% 
+                                          summarise(Count = n())}
 
-```{r cars}
-summary(cars)
+#This establishes a license for the function
+use_mit_license("Marcella Cross")
+
 ```
 
-## Including Plots
+More Examples with the expected results commented after:
+```{r}
+#Example 1: Curb --> binary Yes and No response
+(example.1=group.filterNA.summary(vancouver_trees, "curb")) #expect summary table of numbers of counts of curbs (Y, N)
+expect.1=vancouver_trees %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())
 
-You can also embed plots, for example:
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+#Example 2: neighbourhood_name --> many categories
+(example.2=group.filterNA.summary(vancouver_trees, "neighbourhood_name")) #expect summary table of numbers of counts of different neighbourhood names
+expect.2=vancouver_trees %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())
+
+#Example 3: height--> this one is good because the height range id is actually a numerical variable even though it only contains integers between 1-10. This function should be able to still output a summary table of the value counts.
+(example.3=group.filterNA.summary(vancouver_trees, "height_range_id")) #expect summary table of numbers of counts of EVEN vs. ODD
+expect.3=vancouver_trees %>% group_by(height_range_id) %>% drop_na("height_range_id") %>%summarise(Count = n())
+
+#Example 4: cultivar_name --> Good because it has a lot of NA values
+(example.4=group.filterNA.summary(vancouver_trees, "cultivar_name")) #expect summary table of numbers of counts of cultivars
+expect.4=vancouver_trees %>% group_by(cultivar_name) %>% drop_na("cultivar_name") %>%summarise(Count = n())
+
+#Example 5: error example
+(example.5=group.filterNA.summary(vancouver_trees, 10)) #expect error because y is not a variable name
+
+
+#Example 6: diameter --> this one is good because the diameter is actually a numerical variable. This function should be able to still output a summary table of the value counts (it will be a much larger table...)
+(example.6=group.filterNA.summary(vancouver_trees, "diameter")) #expect summary table of numbers of counts of diameters
+expect.6=vancouver_trees %>% group_by(diameter) %>% drop_na("diameter") %>%summarise(Count = n())
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+Here are two different test_that functions. The first tests two categorical variables (one with two categories and one with a lot) as well as an input value that should result in an error. The second test_that is a numerical variable (with only 10 values represented), a categorical variable with a lot of NA values (the ones prior had no NA values), and one additional numerical variable that has many different values. Each of the example and expect variables come from the section of examples above.
+```{r}
+#First test: See description above
+test_that("Testing group-filterNA-summary function", {
+  expect_equal(digest(group.filterNA.summary(vancouver_trees, "curb")), digest(vancouver_trees %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())))
+  expect_equal(digest(group.filterNA.summary(vancouver_trees, "neighbourhood_name")), digest(vancouver_trees %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())))
+  expect_error(group.filterNA.summary(vancouver_trees, 10))
+})
+
+#Second test: See description above
+test_that("Testing group-filterNA-summary function", {
+  expect_equal(digest(group.filterNA.summary(vancouver_trees, "height_range_id")), digest(vancouver_trees %>% group_by(height_range_id) %>% drop_na("height_range_id") %>%summarise(Count = n())))
+  expect_equal(digest(group.filterNA.summary(vancouver_trees, "cultivar_name")), digest(vancouver_trees %>% group_by(cultivar_name) %>% drop_na("cultivar_name") %>%summarise(Count = n())))
+  expect_equal(digest(group.filterNA.summary(vancouver_trees, "diameter")), digest(vancouver_trees %>% group_by(diameter) %>% drop_na("diameter") %>%summarise(Count = n())))
+})
+
+```
+
+
+
+
