@@ -2,7 +2,7 @@
 title: "B1 Assignment"
 author: "Marcella Cross"
 date: "2022-11-01"
-output: html_document
+output: github_document
 ---
 I am planning to make a function that will group by () and then filter out NA values and finally output a summarise table that tells you the number of each observation in the column. I repeated this procedure multiple times in both assignments and thought a function would be useful. Here are a few useful libraries to load
 ```{r}
@@ -47,7 +47,7 @@ use_mit_license("Marcella Cross")
 ```
 
 More Examples with the expected results commented after:
-```{r}
+```{r, error=TRUE}
 #Example 1: Curb --> binary Yes and No response
 (example.1=group.filterNA.summary(vancouver_trees, "curb")) #expect summary table of numbers of counts of curbs (Y, N)
 expect.1=vancouver_trees %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())
