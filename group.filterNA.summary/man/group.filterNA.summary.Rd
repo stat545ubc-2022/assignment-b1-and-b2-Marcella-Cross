@@ -18,7 +18,7 @@ summary table of counts for each value
 group.filterNA.summary
 }
 \examples{
-group.filterNA.summary(vancouver_trees, street_side_name) #expect summary table of numbers of counts of EVEN vs. ODD
-group.filterNA.summary(vancouver_trees, neighbourhood_name) #expect summary table of numbers of counts of neighbourhoods
-group.filterNA.summary(vancouver_trees, curb) #expect summary table of numbers of counts of neighbourhoods
+group.filterNA.summary(van_tree_data, street_side_name) #expect summary table of numbers of counts of EVEN vs. ODD
+group.filterNA.summary(van_tree_data, neighbourhood_name) #expect summary table of numbers of counts of neighbourhoods
+group.filterNA.summary(van_tree_data, curb) #expect summary table of numbers of counts of neighbourhoods
 }

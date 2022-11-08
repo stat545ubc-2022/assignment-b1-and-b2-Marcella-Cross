@@ -7,9 +7,9 @@
 #' @export
 #'
 #' @examples
-#'group.filterNA.summary(vancouver_trees, street_side_name) #expect summary table of numbers of counts of EVEN vs. ODD
-#' group.filterNA.summary(vancouver_trees, neighbourhood_name) #expect summary table of numbers of counts of neighbourhoods
-#' group.filterNA.summary(vancouver_trees, curb) #expect summary table of numbers of counts of neighbourhoods
+#'group.filterNA.summary(van_tree_data, street_side_name) #expect summary table of numbers of counts of EVEN vs. ODD
+#'group.filterNA.summary(van_tree_data, neighbourhood_name) #expect summary table of numbers of counts of neighbourhoods
+#'group.filterNA.summary(van_tree_data, curb) #expect summary table of numbers of counts of neighbourhoods
 
 group.filterNA.summary <- function(data,column) {if(is.numeric(column)) {
   stop('Sorry, but this function works only for non-numeric inputs!\n',
