@@ -13,8 +13,11 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Imports:
-    digest,
-    devtools
+    dplyr::group_by (),
+    CRAN::digest (),
+    CRAN::devtools (),
+    devtools::use_pipe (),
+    CRAN::testthat ()
 Depends: 
     R (>= 2.10)
 LazyData: true

@@ -77,11 +77,16 @@ expect.6=vancouver_trees %>% group_by(diameter) %>% drop_na("diameter") %>%summa
 
 Here are two different test_that functions. The first tests two categorical variables (one with two categories and one with a lot) as well as an input value that should result in an error. The second test_that is a numerical variable (with only 10 values represented), a categorical variable with a lot of NA values (the ones prior had no NA values), and one additional numerical variable that has many different values. Each of the example and expect variables come from the section of examples above.
 ```{r}
+
 #First test: See description above
+van_tree_data=read.csv("van_tree_data.csv")
+(head(van_tree_data))
+
+
 test_that("Testing group-filterNA-summary function", {
-  expect_equal(digest(group.filterNA.summary(vancouver_trees, "curb")), digest(vancouver_trees %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())))
-  expect_equal(digest(group.filterNA.summary(vancouver_trees, "neighbourhood_name")), digest(vancouver_trees %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())))
-  expect_error(group.filterNA.summary(vancouver_trees, 10))
+  expect_equal(digest(group.filterNA.summary(van_tree_data, "curb")), digest(van_tree_data %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())))
+  expect_equal(digest(group.filterNA.summary(van_tree_data, "neighbourhood_name")), digest(van_tree_data %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())))
+  expect_error(group.filterNA.summary(van_tree_data, 10))
 })
 
 #Second test: See description above
@@ -94,5 +99,13 @@ test_that("Testing group-filterNA-summary function", {
 ```
 
 
+```{r}
+
+test_that("Testing group-filterNA-summary function", {
+  expect_equal(digest(group.filterNA.summary(treedata, "curb")), digest(treedata %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())))
+  expect_equal(digest(group.filterNA.summary(treedata, "neighbourhood_name")), digest(treedata %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())))
+  expect_error(group.filterNA.summary(treedata, 10))
+})
+```
 
 
