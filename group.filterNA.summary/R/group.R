@@ -15,6 +15,6 @@ group.filterNA.summary <- function(data,column) {if(is.numeric("column")) {
   stop('Sorry, but this function works only for non-numeric inputs!\n',
        'You have input an object of class: ', class(!is.numeric("column"))[1])}
     data %>%
-    dplyr::group_by_("column")%>%
-    tidyr::drop_na("column") %>%
+    dplyr::group_by(dplyr::all_of(column)) %>%
+    tidyr::drop_na(dplyr::all_of(column)) %>%
     dplyr::summarise(Count = dplyr::n())}
