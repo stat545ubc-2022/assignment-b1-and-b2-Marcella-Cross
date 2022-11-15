@@ -78,4 +78,19 @@ library(testthat)
 #> 
 #>     test_file
 library(digest)
+library(magrittr)
+#> 
+#> Attaching package: 'magrittr'
+#> 
+#> The following objects are masked from 'package:testthat':
+#> 
+#>     equals, is_less_than, not
+#> 
+#> The following object is masked from 'package:purrr':
+#> 
+#>     set_names
+#> 
+#> The following object is masked from 'package:tidyr':
+#> 
+#>     extract
 ```

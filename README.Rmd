@@ -26,7 +26,7 @@ Assignment B2 creates a package called "group.filterNA.summary()" which takes a 
 
 To Install this package: 
 ```{r}
-install.packages(group.filterNA.summary)
+library(group.filterNA.summary)
 ```
 
 To run the tests and function you need the following libraries loaded:
@@ -37,5 +37,6 @@ library(dplyr)
 library(tidyverse)
 library(testthat)
 library(digest)
+library(magrittr)
 ```
 
