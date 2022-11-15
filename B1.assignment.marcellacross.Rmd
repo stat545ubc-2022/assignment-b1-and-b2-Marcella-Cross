@@ -84,9 +84,9 @@ van_tree_data=read.csv("van_tree_data.csv")
 
 
 test_that("Testing group-filterNA-summary function", {
-  expect_equal(digest(group.filterNA.summary(van_tree_data, "curb")), digest(van_tree_data %>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())))
-  expect_equal(digest(group.filterNA.summary(van_tree_data, "neighbourhood_name")), digest(van_tree_data %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())))
-  expect_error(group.filterNA.summary(van_tree_data, 10))
+  expect_equal(digest(group.filterNA.summary(treedata, "curb")), digest(treedata%>% group_by(curb) %>% drop_na("curb") %>%summarise(Count = n())))
+  expect_equal(digest(group.filterNA.summary(treedata, "neighbourhood_name")), digest(treedata %>% group_by(neighbourhood_name) %>% drop_na("neighbourhood_name") %>%summarise(Count = n())))
+  expect_error(group.filterNA.summary(treedata, 10))
 })
 
 #Second test: See description above
