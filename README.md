@@ -25,6 +25,9 @@ the column.
 To Install this package:
 
 ``` r
+#The install process is of a private repository. For this reason, an error occurs. To still demonstrate the code, I have included it below as a comment:
+#devtools::install_github("Marcella-Cross/assignment-b1-and-b2-Marcella-Cross")
+
 library(group.filterNA.summary)
 ```
 

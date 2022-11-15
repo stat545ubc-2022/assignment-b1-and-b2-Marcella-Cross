@@ -11,10 +11,10 @@
 #'group.filterNA.summary(treedata, "neighbourhood_name") #expect summary table of numbers of counts of neighbourhoods
 #'group.filterNA.summary(treedata, "curb") #expect summary table of numbers of counts of neighbourhoods
 
-group.filterNA.summary <- function(data,column) {if(is.numeric(column)) {
+group.filterNA.summary <- function(data,column) {if(is.numeric("column")) {
   stop('Sorry, but this function works only for non-numeric inputs!\n',
-       'You have input an object of class: ', class(!is.numeric(column))[1])}
+       'You have input an object of class: ', class(!is.numeric("column"))[1])}
     data %>%
     dplyr::group_by_("column")%>%
     tidyr::drop_na("column") %>%
-    dplyr::summarise(Count = n())}
+    dplyr::summarise(Count = dplyr::n())}

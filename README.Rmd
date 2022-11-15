@@ -26,6 +26,7 @@ Assignment B2 creates a package called "group.filterNA.summary()" which takes a 
 
 To Install this package: 
 ```{r}
+devtools::install_github("Marcella-Cross/assignment-b1-and-b2-Marcella-Cross")
 library(group.filterNA.summary)
 ```
 

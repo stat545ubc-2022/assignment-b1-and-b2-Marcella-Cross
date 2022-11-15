@@ -14,7 +14,6 @@ Imports:
     devtools,
     digest,
     dplyr,
-    dplyr::group_by(),
     magrittr,
     testthat,
     tidyr,
