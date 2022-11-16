@@ -13,6 +13,13 @@ knitr::opts_chunk$set(
 
 # assignment-b1-and-b2-Marcella-Cross
 
+
+
+NOTE: There is a separate README.md file within the function package folder called group.filterNA.summary which documents B2, specifically.
+
+
+
+
 The goal of assignment-b1 is to create a useful function and create examples and tests for that function.
 
 I chose to create a function called "group.filterNA.summary()" that will allow the user to group by a column in their dataset, filter out its NA values, and then create a summary table output of the counts of each value occurance. 
