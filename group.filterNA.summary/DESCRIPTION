@@ -11,12 +11,13 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
 Config/testthat/edition: 3
 Imports:
-    digest,
     dplyr,
     magrittr,
+    tidyr
+Suggests: 
     testthat,
-    tidyr,
-    tinytest
+    tinytest,
+    digest
 Depends: 
     R (>= 2.10)
 LazyData: true

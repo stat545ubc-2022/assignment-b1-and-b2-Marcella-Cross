@@ -12,13 +12,16 @@ group.filterNA.summary(data, column)
 \item{column}{-> this is the name of the column/variable of interest}
 }
 \value{
-summary table of counts for each value
+Summary table of counts for each value
 }
 \description{
-group.filterNA.summary
+This package takes a column and data frame input and removes all NA values from that column. Next, it creates a summary table with the count of each value in the column. This function is used when you are interested in a count summary table of values within one column of your data.
 }
 \examples{
-group.filterNA.summary(treedata, "street_side_name") #expect summary table of numbers of counts of EVEN vs. ODD
-group.filterNA.summary(treedata, "neighbourhood_name") #expect summary table of numbers of counts of neighbourhoods
-group.filterNA.summary(treedata, "curb") #expect summary table of numbers of counts of neighbourhoods
+group.filterNA.summary(treedata, "street_side_name") #expect summary table with EVEN vs. ODD
+group.filterNA.summary(treedata, "neighbourhood_name") #expect summary of neighbourhoods
+group.filterNA.summary(treedata, "curb") #expect summary of curb yes vs. no
+}
+\author{
+Marcella Cross - marcella.cross@botany.ubc.ca - ORCID id: 0000-0002-3866-6970
 }
