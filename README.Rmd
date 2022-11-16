@@ -26,20 +26,19 @@ Assignment B2 creates a package called "group.filterNA.summary()" which takes a 
 
 To Install this package: 
 ```{r}
-#The install process is of a private repository. For this reason, an error occurs. To still demonstrate the code, I have included it below as a comment:
-#devtools::install_github("Marcella-Cross/assignment-b1-and-b2-Marcella-Cross/group.filterNA.summary/")
-
+#The install process is below - it is a public reposity
+devtools::install_github("stat545ubc-2022/assignment-b1-and-b2-Marcella-Cross/group.filterNA.summary")
 library(group.filterNA.summary)
 ```
 
 To run the tests and function you need the following libraries loaded:
 ```{r}
-library(devtools)
-library(datateachr)
-library(dplyr)
-library(tidyverse)
-library(testthat)
-library(digest)
-library(magrittr)
+#library(devtools)
+#library(datateachr)
+#library(dplyr)
+#library(tidyverse)
+#library(testthat)
+#library(digest)
+#library(magrittr)
 ```
 

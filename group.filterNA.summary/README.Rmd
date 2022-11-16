@@ -1,4 +1,5 @@
 ---
+title: Function Description and Installation of group.filterNA.summary
 output: github_document
 ---
 
@@ -23,10 +24,15 @@ The goal of group.filterNA.summary is to take a column out of a data frame input
 ## Installation
 
 You can install the development version of group.filterNA.summary from [GitHub](https://github.com/) with:
-
-``` r
+```{r}
 # install.packages("devtools")
-devtools::install_github("stat545ubc-2022/assignment-b1-and-b2-Marcella-Cross", ref="0.2.0")
+devtools::install_github("stat545ubc-2022/assignment-b1-and-b2-Marcella-Cross/group.filterNA.summary")
+```
+## Data
+This is a snapshot of the data set. It is borrowed from the data teachr package - originally called vancouver_trees
+```{r}
+library(group.filterNA.summary)
+head(treedata)
 ```
 
 ## Example
@@ -34,5 +40,11 @@ devtools::install_github("stat545ubc-2022/assignment-b1-and-b2-Marcella-Cross", 
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(group.filterNA.summary)
+group.filterNA.summary(treedata, "curb") #expect summary of curb yes vs. no
+
+#more examples can be found in the function document called group.R
 ```
+## Test Explanation
+-The first test in the test-group.R document tests a number of numeric variables. The one called height_range_id is one that is considered continuous by r even though it only has values 1-10. 
+-The second test has two intentional errors
+-The third test has two categorical variables, one that includes NA values, and one that does not. 

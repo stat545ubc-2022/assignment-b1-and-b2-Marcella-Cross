@@ -25,75 +25,21 @@ the column.
 To Install this package:
 
 ``` r
-#The install process is of a private repository. For this reason, an error occurs. To still demonstrate the code, I have included it below as a comment:
-#devtools::install_github("Marcella-Cross/assignment-b1-and-b2-Marcella-Cross/group.filterNA.summary/")
-
+#The install process is below - it is a public reposity
+devtools::install_github("stat545ubc-2022/assignment-b1-and-b2-Marcella-Cross/group.filterNA.summary")
+#> Skipping install of 'group.filterNA.summary' from a github remote, the SHA1 (9c5c91e2) has not changed since last install.
+#>   Use `force = TRUE` to force installation
 library(group.filterNA.summary)
 ```
 
 To run the tests and function you need the following libraries loaded:
 
 ``` r
-library(devtools)
-#> Loading required package: usethis
-library(datateachr)
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-library(tidyverse)
-#> ── Attaching packages
-#> ───────────────────────────────────────
-#> tidyverse 1.3.2 ──
-#> ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
-#> ✔ tibble  3.1.8     ✔ stringr 1.4.1
-#> ✔ tidyr   1.2.1     ✔ forcats 0.5.2
-#> ✔ readr   2.1.3     
-#> ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#> ✖ dplyr::filter() masks stats::filter()
-#> ✖ dplyr::lag()    masks stats::lag()
-library(testthat)
-#> 
-#> Attaching package: 'testthat'
-#> 
-#> The following object is masked from 'package:purrr':
-#> 
-#>     is_null
-#> 
-#> The following objects are masked from 'package:readr':
-#> 
-#>     edition_get, local_edition
-#> 
-#> The following object is masked from 'package:tidyr':
-#> 
-#>     matches
-#> 
-#> The following object is masked from 'package:dplyr':
-#> 
-#>     matches
-#> 
-#> The following object is masked from 'package:devtools':
-#> 
-#>     test_file
-library(digest)
-library(magrittr)
-#> 
-#> Attaching package: 'magrittr'
-#> 
-#> The following objects are masked from 'package:testthat':
-#> 
-#>     equals, is_less_than, not
-#> 
-#> The following object is masked from 'package:purrr':
-#> 
-#>     set_names
-#> 
-#> The following object is masked from 'package:tidyr':
-#> 
-#>     extract
+#library(devtools)
+#library(datateachr)
+#library(dplyr)
+#library(tidyverse)
+#library(testthat)
+#library(digest)
+#library(magrittr)
 ```
