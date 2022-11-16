@@ -26,7 +26,9 @@ Assignment B2 creates a package called "group.filterNA.summary()" which takes a 
 
 To Install this package: 
 ```{r}
-devtools::install_github("Marcella-Cross/assignment-b1-and-b2-Marcella-Cross")
+#The install process is of a private repository. For this reason, an error occurs. To still demonstrate the code, I have included it below as a comment:
+#devtools::install_github("Marcella-Cross/assignment-b1-and-b2-Marcella-Cross/group.filterNA.summary/")
+
 library(group.filterNA.summary)
 ```
 
