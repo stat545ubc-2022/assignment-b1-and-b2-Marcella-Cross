@@ -1,6 +1,8 @@
-#' Data of Trees in the City of Vancouver, Canada
+#' Data of trees in Vancouver, Canada
 #'
-#' Variables include information regarding the trees in the city as well as information on their location and proximity to things such as curbs or root barriers. The data set also includes information on tree diameter and height class along with different names of the tree.
+#' This data set includes information on the trees in the city of Vancouver. It includes 20 variables including information on tree location, surroundings, names, and more.
 #'
 #' @format A tibble with 146,611 rows and 20 variables:
-treedata
+
+#' @source \url{https://github.com/UBC-MDS/datateachr}
+"treedata"
